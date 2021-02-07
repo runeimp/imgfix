@@ -38,12 +38,9 @@ _build-windows:
 	GOOS=windows GOARCH=amd64 go build -o 'bin/windows/imgfix.exe' ./...
 
 
-# Install macOS app
+# Install app
 install:
-	rm -rf bin/{{os()}}
-	mkdir -p bin/{{os()}}
-	GOARCH=amd64 go build -o 'bin/{{os()}}/imgfix' ./...
-	cp 'bin/{{os()}}/imgfix' "${GOBIN}/"
+	go install ./...
 
 
 # Run the app
